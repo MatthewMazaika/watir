@@ -263,11 +263,8 @@ module Watir
     end
 
     def ensure_context
-      return if @default_context
-
-      driver.switch_to.default_content
+      driver.switch_to.default_content unless @default_context
       @default_context = true
-      after_hooks.run
     end
 
     def browser
